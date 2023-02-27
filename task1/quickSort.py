@@ -4,10 +4,9 @@
 def sort(arr, start, end):
     if start < end:
         pivot_index = partition(arr, start, end)
-        print(arr)  # Print array after partition
         sort(arr, start, pivot_index - 1)
         sort(arr, pivot_index + 1, end)
-    print(arr)
+    print(arr)  # Print array after partition
     return arr
 
 

@@ -1,3 +1,5 @@
+# TODO: Search menu needs rebuilding
+
 # import modules which contains different sorting and searching algorithms
 import quickSort
 import mergeSort
@@ -7,7 +9,6 @@ import linearSearch
 # Menu option at beginning of program
 
 
-# Search menu needs rebuilding
 def menu(dataset):
     choice = int(
         input(
@@ -17,18 +18,21 @@ def menu(dataset):
     if choice == 1:
         print(quickSort.sort(dataset, 0, len(dataset) - 1))
     elif choice == 2:
-        print(mergeSort.sort(dataset))
+        print(dataset, "\n")
+
+        mergeSort.sort(dataset, 0)
     elif choice == 3:
-        linearSearch.find(
-            dataset, itemToFind
-        )  # 1 is place holder for the editor to not give error message, will be taken away in the future
+        itemToFind = int(input("What do you want to search for: "))
+        position = str(linearSearch.find(dataset, itemToFind))
+        print("The item you want to find is in position " + position)
+        print("of the dataset", dataset)
     elif choice == 4:
-        binarySearch.find(
-            dataset, itemToFind
-        )  # 1 is place holder for the editor to not give error message, will be taken away in the future
+        itemToFind = int(input("What do you want to search for: "))
+        position = str(binarySearch.find(dataset, itemToFind))
+        print("The item you want to find is in position " + position)
+        print("of the sorted dataset", dataset)
     elif choice == 5:
         return
-
     else:
         print("Please enter a valid option")
         menu(dataset)
@@ -37,5 +41,5 @@ def menu(dataset):
 if __name__ == "__main__":
     # Dataset change numbers for different results
     # Only valid when working with numbers
-    dataset = [1, 4, 2, 3, 8, 0, 9, 7, 5]
+    dataset = [1, 9, 4, 2, 3, 8, 0, 9, 7, 5]
     menu(dataset)

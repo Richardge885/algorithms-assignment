@@ -1,13 +1,9 @@
 # Binary Search function
-from quickSort import sort
-
-"""
-@arr = dataset
-@ itemToFind = search for
-"""
+from mergeSort import sort
 
 
 def find(arr, itemToFind):
+    arr = sort(arr)
     low = 0
     high = len(arr) - 1
 
@@ -20,5 +16,4 @@ def find(arr, itemToFind):
             high = mid - 1
         else:
             return mid
-
     return -1
