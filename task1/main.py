@@ -10,32 +10,33 @@ import linearSearch
 
 
 def menu(dataset):
-    choice = int(
-        input(
-            "Enter 1 for Quick Sort\nEnter 2 for Merge Sort\nEnter 3 to use linear search\nEnter 4 to use binary search\nEnter 5 to exit\n"
-        )
-    )
-    if choice == 1:
-        print(quickSort.sort(dataset, 0, len(dataset) - 1))
-    elif choice == 2:
-        print(dataset, "\n")
+    while True:
+        try:
+            choice = int(
+                input(
+                    "Enter 1 for Quick Sort\nEnter 2 for Merge Sort\nEnter 3 to use linear search\nEnter 4 to use binary search\nEnter 5 to exit\n"
+                )
+            )
+            if choice == 1:
+                print(quickSort.sort(dataset, 0, len(dataset) - 1))
+            elif choice == 2:
+                print(dataset, "\n")
 
-        mergeSort.sort(dataset, 0)
-    elif choice == 3:
-        itemToFind = int(input("What do you want to search for: "))
-        position = str(linearSearch.find(dataset, itemToFind))
-        print("The item you want to find is in position " + position)
-        print("of the dataset", dataset)
-    elif choice == 4:
-        itemToFind = int(input("What do you want to search for: "))
-        position = str(binarySearch.find(dataset, itemToFind))
-        print("The item you want to find is in position " + position)
-        print("of the sorted dataset", dataset)
-    elif choice == 5:
-        return
-    else:
-        print("Please enter a valid option")
-        menu(dataset)
+                mergeSort.sort(dataset, 0)
+            elif choice == 3:
+                itemToFind = int(input("What do you want to search for: "))
+                position = str(linearSearch.find(dataset, itemToFind))
+                print("The item you want to find is in position " + position)
+                print("of the dataset", dataset)
+            elif choice == 4:
+                itemToFind = int(input("What do you want to search for: "))
+                position = str(binarySearch.find(dataset, itemToFind))
+                print("The item you want to find is in position " + position)
+                print("of the sorted dataset", dataset)
+            elif choice == 5:
+                break
+        except:
+            print("Please enter a valid option\n")
 
 
 if __name__ == "__main__":
