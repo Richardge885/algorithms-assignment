@@ -18,21 +18,25 @@ def menu(dataset):
                 )
             )
             if choice == 1:
+                print("Original dataset is ", dataset, "\n")
                 print(quickSort.sort(dataset, 0, len(dataset) - 1))
             elif choice == 2:
                 print(dataset, "\n")
 
                 mergeSort.sort(dataset, 0)
             elif choice == 3:
+                print("Within this dataset ", dataset)
                 itemToFind = int(input("What do you want to search for: "))
                 position = str(linearSearch.find(dataset, itemToFind))
                 print("The item you want to find is in position " + position)
                 print("of the dataset", dataset)
             elif choice == 4:
+                print("Within this dataset ", dataset)
                 itemToFind = int(input("What do you want to search for: "))
                 position = str(binarySearch.find(dataset, itemToFind))
+                print("\n\n\n")
                 print("The item you want to find is in position " + position)
-                print("of the sorted dataset", dataset)
+                # print("of the sorted dataset", dataset)
             elif choice == 5:
                 break
         except:

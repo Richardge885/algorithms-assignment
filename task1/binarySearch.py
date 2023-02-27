@@ -1,9 +1,9 @@
 # Binary Search function
-from mergeSort import sort
+from quickSort import sort
 
 
 def find(arr, itemToFind):
-    arr = sort(arr)
+    arr = sort(arr, 0, len(arr) - 1)
     low = 0
     high = len(arr) - 1
 
