@@ -1,0 +1,92 @@
+# IMPORT modules which contains different sorting and searching algorithms
+
+IMPORT quickSort
+
+IMPORT mergeSort
+
+IMPORT binarySearch
+
+IMPORT linearSearch
+
+
+
+# Menu of application
+
+DEFINE FUNCTION menu(dataset):
+
+    WHILE True:
+
+        TRY:
+
+            SET choice TO int(
+
+                INPUT(
+
+                    "Enter 1 FOR Quick Sort\nEnter 2 FOR Merge Sort\nEnter 3 to use linear search\nEnter 4 to use binary search\nEnter 5 to exit\n"
+
+                )
+
+            )
+
+            IF choice EQUALS 1:
+
+                OUTPUT("Original dataset is ", dataset, "\n")
+
+                OUTPUT(quickSort.sort(dataset, 0, len(dataset) - 1))
+
+            ELSEIF choice EQUALS 2:
+
+                OUTPUT(dataset, "\n")
+
+
+
+                mergeSort.sort(dataset, 0)
+
+            ELSEIF choice EQUALS 3:
+
+                OUTPUT("Within this dataset ", dataset)
+
+                SET itemToFind TO int(INPUT("What do you want to search for: "))
+
+                SET position TO str(linearSearch.find(dataset, itemToFind))
+
+                OUTPUT("The item you want to find is IN position " + position)
+
+                OUTPUT("of the dataset", dataset)
+
+            ELSEIF choice EQUALS 4:
+
+                OUTPUT("Within this dataset ", dataset)
+
+                SET itemToFind TO int(INPUT("What do you want to search for: "))
+
+                SET position TO str(binarySearch.find(dataset, itemToFind))
+
+                OUTPUT("\n\n\n")
+
+                OUTPUT("The item you want to find is IN position " + position)
+
+                # OUTPUT("of the sorted dataset", dataset)
+
+            ELSEIF choice EQUALS 5:
+
+                break
+
+        EXCEPT:
+
+            OUTPUT("Please enter a valid option\n")
+
+
+
+
+
+IF __name__ EQUALS "__main__":
+
+    # Dataset change numbers FOR different results
+
+    # Only valid when working with numbers
+
+    SET dataset TO [1, 9, 4, 2, 3, 8, 0, 9, 7, 5]
+
+    menu(dataset)
+

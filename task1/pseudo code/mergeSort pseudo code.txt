@@ -1,0 +1,62 @@
+# # Merge Sort algorithm code
+
+DEFINE FUNCTION sort(arr, step):
+
+    step += 1
+
+    IF len(arr) EQUALS 1:
+
+        RETURN arr
+
+    SET length TO len(arr)
+
+    SET mid TO length // 2
+
+    SET left TO arr[:mid]
+
+    SET right TO arr[mid:]
+
+    OUTPUT("Step number ", step)
+
+    OUTPUT("Left {}".format(left))
+
+    OUTPUT("Right {}".format(right))
+
+    OUTPUT()
+
+    RETURN merge(sort(left, step), sort(right, step))
+
+
+
+
+
+DEFINE FUNCTION merge(left, right):
+
+    SET result TO []
+
+    SET leftindex TO 0
+
+    SET rightindex TO 0
+
+    WHILE leftindex < len(left) and rightindex < len(right):
+
+        IF left[leftindex] < right[rightindex]:
+
+            result.append(left[leftindex])
+
+            leftindex += 1
+
+        ELSE:
+
+            result.append(right[rightindex])
+
+            rightindex += 1
+
+    OUTPUT(left, right)
+
+    OUTPUT(result + left[leftindex:] + right[rightindex:])
+
+    OUTPUT()
+
+    RETURN result + left[leftindex:] + right[rightindex:]
+

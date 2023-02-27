@@ -1,0 +1,38 @@
+# Binary Search function
+
+from quickSort IMPORT sort
+
+
+
+
+
+DEFINE FUNCTION find(arr, itemToFind):
+
+    SET arr TO sort(arr, 0, len(arr) - 1)
+
+    SET low TO 0
+
+    SET high TO len(arr) - 1
+
+
+
+    WHILE low <= high:
+
+        SET mid TO (low + high) // 2
+
+
+
+        IF arr[mid] < itemToFind:
+
+            SET low TO mid + 1
+
+        ELSEIF arr[mid] > itemToFind:
+
+            SET high TO mid - 1
+
+        ELSE:
+
+            RETURN mid
+
+    RETURN -1
+

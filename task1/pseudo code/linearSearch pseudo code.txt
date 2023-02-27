@@ -1,0 +1,14 @@
+# Linear Search function
+
+
+
+
+
+DEFINE FUNCTION find(arr, findItem):
+
+    FOR position IN range(len(arr)):
+
+        IF findItem EQUALS arr[position]:
+
+            RETURN str(position)
+

@@ -1,0 +1,42 @@
+# Quick Sort algorithm implementation
+
+
+
+
+
+DEFINE FUNCTION sort(arr, start, end):
+
+    IF start < end:
+
+        SET pivot_index TO partition(arr, start, end)
+
+        sort(arr, start, pivot_index - 1)
+
+        sort(arr, pivot_index + 1, end)
+
+    OUTPUT(arr)  # Print array after partition
+
+    RETURN arr
+
+
+
+
+
+DEFINE FUNCTION partition(arr, start, end):
+
+    SET pivot TO arr[end]
+
+    SET boundary TO start - 1
+
+    FOR j IN range(start, end):
+
+        IF arr[j] < pivot:
+
+            boundary += 1
+
+            SET arr[boundary], arr[j] TO arr[j], arr[boundary]
+
+    SET arr[boundary + 1], arr[end] TO arr[end], arr[boundary + 1]
+
+    RETURN boundary + 1
+

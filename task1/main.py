@@ -1,14 +1,10 @@
-# TODO: Search menu needs rebuilding
-
 # import modules which contains different sorting and searching algorithms
 import quickSort
 import mergeSort
 import binarySearch
 import linearSearch
 
-# Menu option at beginning of program
-
-
+# Menu of application
 def menu(dataset):
     while True:
         try:
