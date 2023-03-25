@@ -1,16 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Food Dilivery App with algorith</title>
+    <title>Food Delivery App with Dijkstra's Algorithm</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="script-src 'none' 'unsafe-inline'"
+      content="default-src 'self' 'unsafe-inline'"
     />
-    <!-- <link href="css/style.css" rel="stylesheet" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/index.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>hello there</h1>
+    <!-- Modals -->
+    <!-- Customer Modal -->
+    <div id="customer-modal" class="modal">
+      <div class="modal-title">
+        Update Customer Information
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <label>
+          Name:
+          <input type="text" id="customer-name-input" />
+        </label>
+        <label>
+          Phone:
+          <input type="text" id="customer-phone-input" />
+        </label>
+        <label>
+          Location:
+          <input type="text" id="customer-location-input" />
+        </label>
+        <button id="customer-into-update-btn" class="update-btn">Update</button>
+      </div>
+    </div>
+
+    <!-- Driver Modal -->
+    <div id="dirver-modal" class="modal">
+      <div class="modal-title">
+        Update Driver Information
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <label>
+          Name:
+          <input type="text" id="driver-name-input" />
+        </label>
+        <label>
+          Phone:
+          <input type="text" id="driver-phone-input" />
+        </label>
+        <label>
+          Location:
+          <input type="text" id="driver-location-input" />
+        </label>
+        <button id="driver-into-update-btn" class="update-btn">Update</button>
+      </div>
+    </div>
+
+    <!-- Main Contents -->
+    <div class="container">
+      <!-- Customer Section -->
+      <div class="customer">
+        <!-- Customer Card -->
+        <div class="card">
+          <div class="card-title">Customer Information</div>
+          <div class="card-body">
+            <label>Name: <span id="customer-name"></span> </label>
+            <label>Phone: <span id="customer-phone"></span> </label>
+            <label>Location: <span id="customer-location"></span> </label>
+          </div>
+        </div>
+        <!-- Customer Encrypted info -->
+        <div class="card">
+          <div class="card-title">Customer Info Encrypted</div>
+          <div class="card-body">
+            <label>Name: <span id="encrypted-customer-name"></span> </label>
+            <label>Phone: <span id="encrypted-customer-phone"></span> </label>
+            <label
+              >Location: <span id="encrypted-customer-location"></span>
+            </label>
+          </div>
+        </div>
+        <!-- Open Modal Button -->
+        <button class="open-modal-btn">Update Customer Info</button>
+      </div>
+
+      <!-- Graph Section -->
+      <div class="graph">
+        <div class="map"></div>
+        <button id="find-shortest-path">Find Shortest Path</button>
+      </div>
+
+      <!-- Driver Section -->
+      <div class="driver">
+        <!-- Driver Card -->
+        <div class="card">
+          <div class="card-title">Driver Information</div>
+          <div class="card-body">
+            <label>Name: <span id="driver-name"></span> </label>
+            <label>Phone: <span id="driver-phone"></span> </label>
+            <label>Location: <span id="driver-location"></span> </label>
+          </div>
+        </div>
+
+        <!-- Driver Encrypted info -->
+        <div class="card">
+          <div class="card-title">Driver Info Encrypted</div>
+          <div class="card-body">
+            <label>Name: <span id="encrypted-driver-name"></span> </label>
+            <label>Phone: <span id="encrypted-driver-phone"></span> </label>
+            <label
+              >Location: <span id="encrypted-driver-location"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Open Modal Button -->
+        <button class="open-modal-btn">Update Driver Info</button>
+      </div>
+    </div>
+
+    <!-- Output Section -->
+    <div class="output"></div>
+
+    <!-- Modal -->
+    <div id="overlay"></div>
+    <script src="js/modal.js"></script>
   </body>
 </html>

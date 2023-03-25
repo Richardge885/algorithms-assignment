@@ -7,13 +7,15 @@
         "start": "electron .",
         "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/neural.icns --prune=true --out=release-builds",
         "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=assets/neural.ico--prune=false --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"food delivery app\"",
-        "package-linux": "electron-packager .  --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/neural.png --prune=true --out=release-builds"
+        "package-linux": "electron-packager .  --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/neural.png --prune=true --out=release-builds",
+        "dev": "nodemon --exec electron ."
     },
     "keywords": [],
-    "author": "Richard Ge and Victor", 
+    "author": "Richard Ge and Victor",
     "license": "ISC",
     "devDependencies": {
         "electron": "^23.1.2",
-        "electron-packager": "^17.1.1"
+        "electron-packager": "^17.1.1",
+        "nodemon": "^2.0.22"
     }
 }
