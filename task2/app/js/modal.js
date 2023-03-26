@@ -2,7 +2,11 @@
 const openModalButton = document.querySelectorAll('.open-modal-btn');
 const closeModalButton = document.querySelectorAll('.modal-close-btn');
 const overlay = document.getElementById('overlay');
-const updateButton = document.querySelectorAll('.update-btn');
+const updateCustomerButton = document.getElementById(
+    'customer-info-update-btn'
+);
+const updateDriverButton = document.getElementById('driver-info-update-btn');
+const findPathButton = document.getElementById('find-path');
 
 openModalButton.forEach((button, index) => {
     button.addEventListener('click', () => {
@@ -18,17 +22,18 @@ closeModalButton.forEach((button, index) => {
     });
 });
 
-// needs functionality completion
-updateButton.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        const modal = document.querySelectorAll('.modal');
-        if (index == 0) {
-            updateCustomerInfo();
-        } else {
-            updateDriverInfo();
-        }
-        closeModal(modal[index]);
-    });
+updateCustomerButton.addEventListener('click', () => {
+    updateCustomerInfo();
+    closeModal(document.getElementById('customer-modal'));
+});
+
+updateDriverButton.addEventListener('click', () => {
+    updateDriverInfo();
+    closeModal(document.getElementById('driver-modal'));
+});
+
+findPathButton.addEventListener('click', () => {
+    closeModal(document.getElementById('graph-modal'));
 });
 
 overlay.addEventListener('click', () => {
@@ -60,7 +65,9 @@ function clearInputField() {
 function updateCustomerInfo() {
     let userName = document.getElementById('customer-name-input').value;
     let userPhone = document.getElementById('customer-phone-input').value;
-    let userLocation = document.getElementById('customer-location-input').value;
+    let userLocation = document
+        .getElementById('customer-location-input')
+        .value.toUpperCase();
     let userInfo = {
         type: 'customer',
         name: userName,
@@ -77,7 +84,9 @@ function updateCustomerInfo() {
 function updateDriverInfo() {
     let driverName = document.getElementById('driver-name-input').value;
     let driverPhone = document.getElementById('driver-phone-input').value;
-    let driverLocation = document.getElementById('driver-location-input').value;
+    let driverLocation = document
+        .getElementById('driver-location-input')
+        .value.toUpperCase();
     let driverInfo = {
         type: 'driver',
         name: driverName,

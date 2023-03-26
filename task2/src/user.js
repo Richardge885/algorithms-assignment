@@ -1,8 +1,9 @@
 /**
  * Used Caesar Cipher encryption algorithm with a default but could be dynamic shift
  * Supports English words and Numbers
- * @param {string} Info Information needs to be encrypted
+ * @param {string} Text Information needs to be encrypted
  * @param {number} Shift Shift value of Caesar Cipher encryption, default 4
+ *
  */
 function encryptInfo(text, shift = 4) {
     let result = '';

@@ -20,6 +20,42 @@ ipcRenderer.on('encrypted', (e, data) => {
     }
 });
 
+ipcRenderer.on('shortestPath', (e, paths) => {
+    const driverToStore = document.getElementById(
+        'shortest-path-driver-to-store'
+    );
+    const storeToCustomer = document.getElementById(
+        'shortest-path-store-to-customer'
+    );
+    let driverToStorePath = 'Driver to Store Shortest Rout is from, ';
+    let storeToCustomerPath = 'Store to Customer Shortest Rout is from, ';
+
+    driverToStorePath = driverToStorePath + paths.driverToStore.path[0];
+    for (let i = 1; i < paths.driverToStore.path.length; i++) {
+        driverToStorePath =
+            driverToStorePath + ', to ' + paths.driverToStore.path[i];
+    }
+    driverToStorePath =
+        driverToStorePath +
+        '. The total distance is ' +
+        paths.driverToStore.distance +
+        'km';
+
+    storeToCustomerPath = storeToCustomerPath + paths.storeToCustomer.path[0];
+    for (let i = 1; i < paths.storeToCustomer.path.length; i++) {
+        storeToCustomerPath =
+            storeToCustomerPath + ', to ' + paths.storeToCustomer.path[i];
+    }
+    storeToCustomerPath =
+        storeToCustomerPath +
+        '. The total distance is ' +
+        paths.storeToCustomer.distance +
+        'km';
+
+    driverToStore.innerHTML = driverToStorePath;
+    storeToCustomer.innerHTML = storeToCustomerPath;
+});
+
 const app = {
     send: (tag, data) => ipcRenderer.send(tag, data)
 };
