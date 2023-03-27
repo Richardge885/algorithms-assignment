@@ -5,8 +5,8 @@ const graph = {
         name: 'Handsworth',
         neighbours: {
             B: 2,
-            D: 1,
-        },
+            D: 1
+        }
     },
     B: {
         id: 'B',
@@ -14,8 +14,8 @@ const graph = {
         neighbours: {
             A: 2,
             C: 4,
-            D: 3,
-        },
+            D: 3
+        }
     },
     C: {
         id: 'C',
@@ -24,8 +24,8 @@ const graph = {
             B: 4,
             G: 5,
             I: 3,
-            E: 7,
-        },
+            E: 7
+        }
     },
     D: {
         id: 'D',
@@ -34,8 +34,8 @@ const graph = {
             A: 1,
             B: 3,
             E: 4,
-            F: 5,
-        },
+            F: 5
+        }
     },
     E: {
         id: 'E',
@@ -44,16 +44,16 @@ const graph = {
             D: 4,
             F: 3,
             C: 7,
-            H: 5,
-        },
+            H: 5
+        }
     },
     F: {
         id: 'F',
         name: 'Edgbaston',
         neighbours: {
             D: 5,
-            E: 3,
-        },
+            E: 3
+        }
     },
     G: {
         id: 'G',
@@ -61,8 +61,8 @@ const graph = {
         neighbours: {
             C: 5,
             J: 4,
-            H: 11,
-        },
+            H: 11
+        }
     },
     H: {
         id: 'H',
@@ -71,33 +71,33 @@ const graph = {
             E: 5,
             I: 5,
             G: 11,
-            K: 6,
-        },
+            K: 6
+        }
     },
     I: {
         id: 'I',
-        name: 'Small Heath',
+        name: 'Smoll Heath',
         neighbours: {
             C: 3,
-            H: 5,
-        },
+            H: 5
+        }
     },
     J: {
         id: 'J',
         name: 'Marston Green',
         neighbours: {
             G: 4,
-            K: 3,
-        },
+            K: 3
+        }
     },
     K: {
         id: 'K',
         name: 'Elmdon',
         neighbours: {
             J: 3,
-            H: 6,
-        },
-    },
+            H: 6
+        }
+    }
 };
 
 /**
@@ -168,7 +168,7 @@ function shortestPath(graph, startNode, endNode) {
     // Return the path and distance as an object
     return {
         path: path,
-        distance: distances[endNode],
+        distance: distances[endNode]
     };
 }
 
